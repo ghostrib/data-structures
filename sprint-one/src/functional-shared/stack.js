@@ -1,9 +1,7 @@
 var Stack = function() {
   var someInstance = {};
   someInstance.storage = {};
-  someInstance.push = stackMethods.push;
-  someInstance.pop = stackMethods.pop;
-  someInstance.size = stackMethods.size;
+  _.extend(someInstance, stackMethods);
   return someInstance;
 };
 
