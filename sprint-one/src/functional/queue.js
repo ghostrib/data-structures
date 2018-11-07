@@ -7,12 +7,7 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    var keys = Object.keys(storage);
-    var numbers = [];
-    keys.forEach(function(key){
-      numbers.push(Number(key));
-    });
-    storage[numbers.length] = value;
+    storage[Object.keys(storage).length] = value;
   };
 
   someInstance.dequeue = function() {
@@ -20,7 +15,6 @@ var Queue = function() {
     var keys = Object.keys(storage);
     for (var i = 1; i < keys.length; i++) {
       storage[i - 1] = storage[i];
-      // console.log(storage)
     }
     delete storage[keys.length -1];
     return firstKey;

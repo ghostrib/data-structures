@@ -11,12 +11,7 @@ var queueMethods = {};
 
 
 queueMethods.enqueue = function(value) {
-  var keys = Object.keys(this.storage);
-  var numbers = [];
-  keys.forEach(function(key){
-    numbers.push(Number(key));
-  });
-  this.storage[numbers.length] = value;
+  this.storage[Object.keys(this.storage).length] = value;
 };
 
 queueMethods.dequeue = function() {
