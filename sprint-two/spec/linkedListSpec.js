@@ -51,5 +51,9 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  // it('should update pointer for last node when tail is appended', function() {
+  //   linkedList
+  // })
+
   // add more tests here to test the functionality of linkedList
 });
