@@ -41,7 +41,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 Graph.prototype.addEdge = function(fromNode, toNode) {
   this.edges[fromNode].push(toNode);
   this.edges[toNode].push(fromNode);
-  console.log(this.edges)
+ // console.log(this.edges)
 };
 
 // Remove an edge between any two specified (by value) nodes.

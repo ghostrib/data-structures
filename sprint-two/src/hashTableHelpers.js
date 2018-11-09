@@ -11,23 +11,48 @@
 //   limitedArray.set(3, 'hi');
 //   limitedArray.get(3); // returns 'hi'
 
+// var LimitedArray = function(limit) {
+//   var storage = [];
+
+//   var limitedArray = {};
+//   limitedArray.get = function(index) {
+//     checkLimit(index);
+//     return storage[index];
+//   };
+//   limitedArray.set = function(index, value) {
+//     checkLimit(index);
+//     storage[index].push(value);
+//   };
+//   limitedArray.each = function(callback) {
+//     for (var i = 0; i < storage.length; i++) {
+//       callback(storage[i], i, storage);
+//     }
+//   };
+
+
 var LimitedArray = function(limit) {
-  var storage = [];
+  
 
   var limitedArray = {};
+  limitedArray.storage = [];
   limitedArray.get = function(index) {
     checkLimit(index);
-    return storage[index];
+    return limitedArray.storage[index];
   };
   limitedArray.set = function(index, value) {
     checkLimit(index);
-    storage[index] = value;
+    if (limitedArray.storage[index] === undefined) {
+      limitedArray.storage[index] = [];
+    }
+    limitedArray.storage[index].push([])
+    limitedArray.storage[index] = value;
   };
   limitedArray.each = function(callback) {
-    for (var i = 0; i < storage.length; i++) {
-      callback(storage[i], i, storage);
+    for (var i = 0; i < limitedArray.storage.length; i++) {
+      callback(limitedArray.storage[i], i, limitedArray.storage);
     }
   };
+
 
   var checkLimit = function(index) {
     if (typeof index !== 'number') {
