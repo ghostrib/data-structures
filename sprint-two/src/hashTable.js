@@ -34,7 +34,7 @@ HashTable.prototype.retrieve = function(k) {
     }
   }
   return undefined;
-};
+};  
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
