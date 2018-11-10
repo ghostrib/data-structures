@@ -1,14 +1,4 @@
 var BinarySearchTree = function(value) {
-  var node = new BSTNode(value);
-  this.head = this;
-  this.value = value;
-  this.left = null;
-  this.right = null;
-};
-
-
-
-var BSTNode = function(value) {
   this.value = value;
   this.left = null;
   this.right = null;
@@ -17,9 +7,9 @@ var BSTNode = function(value) {
 
 ///// METHODS   //////
 
- 
+
 BinarySearchTree.prototype.insert = function(value){
-  var currNode = this.head;
+  var currNode = this;
   var direction;
   var foundBottom = false;
 
@@ -33,14 +23,14 @@ BinarySearchTree.prototype.insert = function(value){
     if (currNode[direction]) {
       currNode = currNode[direction];
     } else {
-      currNode[direction] = new BSTNode(value);
+      currNode[direction] = new BinarySearchTree(value);
       foundBottom = true;
     }
   }   
 }
 
 BinarySearchTree.prototype.contains = function(value) {
-  var currNode = this.head;
+  var currNode = this;
   
   var hasValue = function(node) {
     if (value === node.value) {
@@ -66,8 +56,22 @@ BinarySearchTree.prototype.contains = function(value) {
 }
 
 
-BinarySearchTree.prototype.depthFirstLog = function(value) {
-  return undefined;
+BinarySearchTree.prototype.depthFirstLog = function(func) {
+  
+  var currNode = this;
+
+  var applyCallbackRecursively = function(node) {
+    func(node.value);
+
+    // do recursive call for all child nodes
+    if (node.left) {
+      applyCallbackRecursively(node.left);
+    }
+    if (node.right) {
+      applyCallbackRecursively(node.right);
+    }
+  }
+  applyCallbackRecursively(currNode);
 }
 
 /*

@@ -3,10 +3,9 @@ describe('binarySearchTree', function() {
 
   beforeEach(function() {
     binarySearchTree = new BinarySearchTree(5);
-    console.log(binarySearchTree);
   });
 
-  xit('should have methods named "insert", "contains", and "depthFirstLog', function() { 
+  it('should have methods named "insert", "contains", and "depthFirstLog', function() { 
     expect(binarySearchTree.insert).to.be.a('function');
     expect(binarySearchTree.contains).to.be.a('function');
     expect(binarySearchTree.depthFirstLog).to.be.a('function');
